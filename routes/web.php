@@ -20,4 +20,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/donation', 'DonationController@index');
+Route::get('/donation', 'DonationController@index')->name('donation.index');
+Route::post('/donation', 'DonationController@store')->name('donation.store');
