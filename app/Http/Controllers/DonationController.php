@@ -19,6 +19,18 @@ class DonationController extends Controller
         Veritrans_Config::$is3ds = config('services.midtrans.is3ds');
     }
 
+    public function index()
+    {
+        $donations = Donation::orderBy('id', 'desc')->paginate(8);
+        return view('welcome', compact('donations'));
+    }
+
+
+    public function create()
+    {
+        return view('donation');
+    }
+
     public function store(Request $request)
     {
         \DB::transaction(function() use($request) {

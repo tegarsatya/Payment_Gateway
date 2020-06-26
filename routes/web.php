@@ -13,12 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'DonationController@index');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/donation', 'DonationController@index')->name('donation.index');
-Route::post('/donation', 'DonationController@store')->name('donation.store');
+Route::get('/donation', 'DonationController@create')->name('donation.create');
+
